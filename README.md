@@ -1,9 +1,4 @@
 # MicroservicesFullStack
-Here is a suggested README file for the **MicroservicesFullStack** project:
-
----
-
-# MicroservicesFullStack
 
 ## Overview
 
