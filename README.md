@@ -55,14 +55,14 @@ The infrastructure setup includes Kubernetes configurations for deploying the mi
     ```
 
 3. **Set up Kubernetes and Skaffold**:
-    - Ensure that Kubernetes is running (e.g., start Minikube).
-      ```
-      kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml
-      ```
-    - Deploy using Skaffold:
-      ```sh
-      skaffold dev
-      ```
+  - Ensure that Kubernetes is running (e.g., start Minikube).
+    ```
+    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.1/deploy/static/provider/cloud/deploy.yaml
+    ```
+  - Deploy using Skaffold:
+    ```sh
+    skaffold dev
+    ```
 
 ### Running the Services
 
