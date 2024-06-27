@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: auth
-          image: yuyuanchang/auth
-          env: 
+          image: rallycoding/auth
+          env:
             - name: JWT_KEY
-              valueFrom: 
+              valueFrom:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY

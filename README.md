@@ -18,10 +18,10 @@ MicroservicesFullStack is a comprehensive project demonstrating a full-stack app
 This service handles user authentication and authorization. It includes endpoints for user signup, signin, signout, and retrieving the current user.
 
 - **Endpoints**:
-  - `/api/users/signup` - Register a new user.
-  - `/api/users/signin` - Sign in an existing user.
-  - `/api/users/signout` - Sign out a user.
-  - `/api/users/currentuser` - Get the current authenticated user.
+- `/api/users/signup` - Register a new user.
+- `/api/users/signin` - Sign in an existing user.
+- `/api/users/signout` - Sign out a user.
+- `/api/users/currentuser` - Get the current authenticated user.
 
 ### Infrastructure (Infra)
 
