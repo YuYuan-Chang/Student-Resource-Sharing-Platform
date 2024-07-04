@@ -21,3 +21,5 @@ auth/.dockerignore
 
 # Miscellaneous
 .DS_Store
+
+build
