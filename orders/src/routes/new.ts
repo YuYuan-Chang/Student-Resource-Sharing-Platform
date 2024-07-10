@@ -13,7 +13,6 @@ import { Order } from '../models/order';
 import { OrderCreatedPublisher } from '../events/publishers/order-created-publisher';
 import { natsWrapper } from '../nats-wrapper';
 
-
 const router = express.Router();
 
 const EXPIRATION_WINDOW_SECONDS = 15 * 60;
@@ -35,8 +34,7 @@ router.post(
     // Find the ticket the user is trying to order in the database
     const ticket = await Ticket.findById(ticketId);
     if (!ticket) {
-        throw new BadRequestError('Ticket is already reserved');
-        throw new NotFoundError();
+      throw new NotFoundError();
     }
 
     // Make sure that this ticket is not already reserved
@@ -66,8 +64,8 @@ router.post(
       expiresAt: order.expiresAt.toISOString(),
       ticket: {
         id: ticket.id,
-        price: ticket.price
-      }
+        price: ticket.price,
+      },
     });
 
     res.status(201).send(order);

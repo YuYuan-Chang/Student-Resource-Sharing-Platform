@@ -6,7 +6,6 @@ import { validateRequest, BadRequestError } from '@lawani321/common';
 import { Password } from '../services/password';
 import { User } from '../models/user';
 
-
 const router = express.Router();
 
 router.post(

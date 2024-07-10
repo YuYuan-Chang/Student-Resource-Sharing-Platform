@@ -10,6 +10,7 @@ declare global {
 let mongo: any;
 beforeAll(async () => {
   process.env.JWT_KEY = 'asdfasdf';
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
   const mongo = await MongoMemoryServer.create();
   const mongoUri = mongo.getUri();
@@ -40,11 +41,11 @@ global.signin = async () => {
     .post('/api/users/signup')
     .send({
       email,
-      password
+      password,
     })
     .expect(201);
 
-    const cookie = response.get('Set-Cookie');
+  const cookie = response.get('Set-Cookie');
 
-    return cookie
+  return cookie;
 };

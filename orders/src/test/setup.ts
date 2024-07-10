@@ -5,8 +5,7 @@ import jwt from 'jsonwebtoken';
 declare global {
   var signin: () => string[];
 }
-
-jest.mock('../nats-wrapper')
+jest.mock('../nats-wrapper');
 
 let mongo: any;
 beforeAll(async () => {
@@ -39,7 +38,7 @@ global.signin = () => {
   // Build a JWT payload.  { id, email }
   const payload = {
     id: new mongoose.Types.ObjectId().toHexString(),
-    email: 'test@test.com'
+    email: 'test@test.com',
   };
 
   // Create the JWT!

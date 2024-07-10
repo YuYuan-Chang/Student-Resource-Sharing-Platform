@@ -1,10 +1,9 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
+import { validateRequest, BadRequestError } from '@lawani321/common';
 
-import { validateRequest, BadRequestError } from '@lawani321/common'
 import { User } from '../models/user';
-
 
 const router = express.Router();
 
