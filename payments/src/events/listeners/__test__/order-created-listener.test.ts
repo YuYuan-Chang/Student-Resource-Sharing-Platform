@@ -1,10 +1,6 @@
 import mongoose from 'mongoose';
 import { Message } from 'node-nats-streaming';
-<<<<<<< HEAD
-import { OrderCreatedEvent, OrderStatus } from '@rallycoding/common';
-=======
 import { OrderCreatedEvent, OrderStatus } from '@lawani321/common';
->>>>>>> 9ab12212f2fd6a289e10f0d5a20a414ea9e9d31b
 import { natsWrapper } from '../../../nats-wrapper';
 import { OrderCreatedListener } from '../order-created-listener';
 import { Order } from '../../../models/order';
