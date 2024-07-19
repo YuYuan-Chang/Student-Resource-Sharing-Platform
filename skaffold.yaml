@@ -14,7 +14,7 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: "src/**/*.ts"
+          - src: 'src/**/*.ts'
             dest: .
     - image: yuyuanchang/ticketing-client
       context: client
@@ -42,6 +42,14 @@ build:
             dest: .
     - image: yuyuanchang/expiration
       context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: yuyuanchang/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:

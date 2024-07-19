@@ -1,6 +1,6 @@
 import request from 'supertest';
 import { app } from '../../app';
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 import { Ticket } from '../../models/ticket';
 import { natsWrapper } from '../../nats-wrapper';
 
@@ -104,8 +104,30 @@ it('updates the ticket provided valid inputs', async () => {
   expect(ticketResponse.body.price).toEqual(100);
 });
 
-it('reject updates if the ticket is reserved', async () => {
+it('publishes an event', async () => {
+  const cookie = global.signin();
 
+  const response = await request(app)
+    .post('/api/tickets')
+    .set('Cookie', cookie)
+    .send({
+      title: 'asldkfj',
+      price: 20,
+    });
+
+  await request(app)
+    .put(`/api/tickets/${response.body.id}`)
+    .set('Cookie', cookie)
+    .send({
+      title: 'new title',
+      price: 100,
+    })
+    .expect(200);
+
+  expect(natsWrapper.client.publish).toHaveBeenCalled();
+});
+
+it('rejects updates if the ticket is reserved', async () => {
   const cookie = global.signin();
 
   const response = await request(app)
@@ -117,7 +139,7 @@ it('reject updates if the ticket is reserved', async () => {
     });
 
   const ticket = await Ticket.findById(response.body.id);
-  ticket?.set({orderId: new mongoose.Types.ObjectId().toHexString()});
+  ticket!.set({ orderId: new mongoose.Types.ObjectId().toHexString() });
   await ticket!.save();
 
   await request(app)

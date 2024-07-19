@@ -1,4 +1,4 @@
-import mongoose, { set } from 'mongoose';
+import mongoose from 'mongoose';
 import { Message } from 'node-nats-streaming';
 import { TicketUpdatedEvent } from '@lawani321/common';
 import { TicketUpdatedListener } from '../ticket-updated-listener';
@@ -37,36 +37,33 @@ const setup = async () => {
 };
 
 it('finds, updates, and saves a ticket', async () => {
-    const { msg, data, ticket, listener} = await setup();
+  const { msg, data, ticket, listener } = await setup();
 
-    await listener.onMessage(data, msg);
+  await listener.onMessage(data, msg);
 
-    const updatedTicket = await Ticket.findById(ticket.id);
+  const updatedTicket = await Ticket.findById(ticket.id);
 
-    expect(updatedTicket!.title).toEqual(data.title);
-    expect(updatedTicket!.price).toEqual(data.price);
-    expect(updatedTicket!.version).toEqual(data.version);
+  expect(updatedTicket!.title).toEqual(data.title);
+  expect(updatedTicket!.price).toEqual(data.price);
+  expect(updatedTicket!.version).toEqual(data.version);
 });
 
 it('acks the message', async () => {
-    const {msg, data, ticket, listener} = await setup();
+  const { msg, data, listener } = await setup();
 
-    await listener.onMessage(data, msg);
+  await listener.onMessage(data, msg);
 
-    expect(msg.ack).toHaveBeenCalled();
+  expect(msg.ack).toHaveBeenCalled();
 });
 
-it('does not call ack if the event has a skipped verion number', async () => {
-    const {msg, data, listener, ticket} = await setup();
+it('does not call ack if the event has a skipped version number', async () => {
+  const { msg, data, listener, ticket } = await setup();
 
-    data.version = 10;
+  data.version = 10;
 
-    try {
-        await listener.onMessage(data, msg);
-    } catch (err) {
+  try {
+    await listener.onMessage(data, msg);
+  } catch (err) {}
 
-    }
-
-    expect(msg.ack).not.toHaveBeenCalled()
-    
+  expect(msg.ack).not.toHaveBeenCalled();
 });

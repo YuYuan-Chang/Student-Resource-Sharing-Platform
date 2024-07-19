@@ -15,7 +15,6 @@ interface TicketDoc extends mongoose.Document {
   orderId?: string;
 }
 
-
 interface TicketModel extends mongoose.Model<TicketDoc> {
   build(attrs: TicketAttrs): TicketDoc;
 }
@@ -36,7 +35,7 @@ const ticketSchema = new mongoose.Schema(
     },
     orderId: {
       type: String,
-    }
+    },
   },
   {
     toJSON: {
@@ -47,7 +46,6 @@ const ticketSchema = new mongoose.Schema(
     },
   }
 );
-
 ticketSchema.set('versionKey', 'version');
 ticketSchema.plugin(updateIfCurrentPlugin);
 
