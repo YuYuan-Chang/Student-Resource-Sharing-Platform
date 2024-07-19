@@ -40,14 +40,6 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: yuyuanchang/expiration
-      context: expiration
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
     - image: yuyuanchang/payments
       context: payments
       docker:
