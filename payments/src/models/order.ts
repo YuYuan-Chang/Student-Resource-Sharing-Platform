@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
-<<<<<<< HEAD
-import { OrderStatus } from '@rallycoding/common';
-=======
+
 import { OrderStatus } from '@lawani321/common';
->>>>>>> 9ab12212f2fd6a289e10f0d5a20a414ea9e9d31b
+
 
 interface OrderAttrs {
   id: string;

@@ -1,9 +1,7 @@
 import { Message } from 'node-nats-streaming';
-<<<<<<< HEAD
-import { Listener, OrderCreatedEvent, Subjects } from '@rallycoding/common';
-=======
+
 import { Listener, OrderCreatedEvent, Subjects } from '@lawani321/common';
->>>>>>> 9ab12212f2fd6a289e10f0d5a20a414ea9e9d31b
+
 import { queueGroupName } from './queue-group-name';
 import { Order } from '../../models/order';
 
