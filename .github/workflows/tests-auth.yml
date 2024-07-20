@@ -1,6 +1,6 @@
 name: tests-auth
 
-on: 
+on:
   pull_request:
     paths:
       - 'auth/**'
