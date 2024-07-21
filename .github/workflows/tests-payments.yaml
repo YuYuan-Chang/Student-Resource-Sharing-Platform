@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd payments && npm install 
+      - run: cd payments && npm cache clean --force && npm install 
 

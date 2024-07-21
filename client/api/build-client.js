@@ -6,7 +6,7 @@ export default ({ req }) => {
 
     return axios.create({
       baseURL:
-        'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local',
+        'http://www.lawani321.pro/',
       headers: req.headers,
     });
   } else {
