@@ -1,8 +1,8 @@
-# MicroservicesFullStack
+# Student Resource Sharing Platform
 
 ## Overview
 
-MicroservicesFullStack is a comprehensive project demonstrating a full-stack application built using microservices architecture. The application leverages various technologies to build scalable, maintainable, and efficient microservices that communicate with each other seamlessly.
+Student Resource Sharing Platform is a comprehensive project demonstrating a full-stack application built using microservices architecture. The application leverages various technologies to build scalable, maintainable, and efficient microservices that communicate with each other seamlessly.
 
 ## Features
 
@@ -44,8 +44,8 @@ The infrastructure setup includes Kubernetes configurations for deploying the mi
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/YuYuan-Chang/MicroservicesFullStack.git
-    cd MicroservicesFullStack
+    git clone https://github.com/YuYuan-Chang/Student Resource Sharing Platform.git
+    cd Student Resource Sharing Platform
     ```
 
 2. **Install dependencies for the Auth service**:
